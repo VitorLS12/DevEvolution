@@ -1,12 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom"
 
-function PrivateRoute({ children }) {
-
-  const auth = localStorage.getItem("auth")
-
-  return auth ? children : <Navigate to="/login" />
-}
-
 import "./styles/theme.css"
 import '@fortawesome/fontawesome-free/css/all.min.css'
 
@@ -17,7 +10,14 @@ import Trilha from "./pages/Trilha"
 import Login from "./pages/Login"
 import LoginUser from "./pages/LoginUser"
 import Perfil from "./pages/Perfil"
-import Dashboard from "./pages/Dashboard"
+import Ligas from "./pages/Ligas"
+
+function PrivateRoute({ children }) {
+
+  const auth = localStorage.getItem("auth")
+
+  return auth ? children : <Navigate to="/login" />
+}
 
 function Layout({ children }) {
   return (
@@ -34,10 +34,8 @@ function Layout({ children }) {
   )
 }
 
-
 function App() {
   return (
-    
 
     <Routes>
 
@@ -47,27 +45,40 @@ function App() {
 
       <Route path="/login" element={<LoginUser />} />
 
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route 
+        path="/dashboard"
+        element={
+          <PrivateRoute>
+            <Layout>
+              <Trilha />
+            </Layout>
+          </PrivateRoute>
+        }
+      />
 
       <Route 
-  path="/dashboard"
-  element={
-    <Layout>
-      <Trilha />
-    </Layout>
-  }
-/>
+        path="/perfil"
+        element={
+          <PrivateRoute>
+            <Layout>
+              <Perfil />
+            </Layout>
+          </PrivateRoute>
+        }
+      />
 
-<Route 
-  path="/perfil"
-  element={
-    <Layout>
-      <Perfil />
-    </Layout>
-  }
-/>
+      <Route 
+        path="/ligas"
+        element={
+          <PrivateRoute>
+            <Layout>
+              <Ligas />
+            </Layout>
+          </PrivateRoute>
+        }
+      />
+
     </Routes>
-
 
   )
 }
