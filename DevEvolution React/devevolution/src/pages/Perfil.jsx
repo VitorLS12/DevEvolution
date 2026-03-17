@@ -17,10 +17,15 @@ function Perfil() {
       return
     }
   
-    setUsuario(JSON.parse(usuarioSalvo))
+    const dadosUsuario = JSON.parse(usuarioSalvo)
+    setTimeout(() => {
+      setUsuario(dadosUsuario)
+    }, 0)
   
     if (fotoSalva) {
-      setFoto(fotoSalva)
+      setTimeout(() => {
+        setFoto(fotoSalva)
+      }, 0)
     }
   
   }, [navigate])
