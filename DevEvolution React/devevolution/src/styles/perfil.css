@@ -1,5 +1,5 @@
 .perfil-container{
-  padding:40px;
+  padding:10px;
   color:white;
 }
 
@@ -51,7 +51,7 @@
 
 .stat-card{
   background:#13233d;
-  padding:30px;
+  padding:20px;
   border-radius:16px;
   text-align:center;
 }

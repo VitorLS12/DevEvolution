@@ -16,27 +16,33 @@ function Sidebar() {
 
         <nav>
           <ul className="nav-list">
+           
+            <NavLink to="/dashboard">
+                {({ isActive }) => (
+                <li className={isActive ? "nav-items active" : "nav-items"}>
+                  <i className="fa-regular fa-map"></i>
+                  <span>Trilha</span>
+                </li>
+              )}
+            </NavLink>
 
-            <li className="nav-items">
-              <NavLink to="/dashboard">
-                <i className="fa-regular fa-map"></i>
-                <span>Trilha</span>
-              </NavLink>
-            </li>
-
-            <li className="nav-items">
-              <NavLink to="/perfil">
-                <i className="fa-regular fa-user"></i>
-                <span>Perfil</span>
-              </NavLink>
-            </li>
-
-            <li className="nav-items">
-              <NavLink to="/ligas">
-                <i className="fa-regular fa-flag"></i>
-                <span>Ligas</span>
-              </NavLink>
-            </li>
+            <NavLink to="/perfil">
+                {({ isActive }) => (
+                <li className={isActive ? "nav-items active" : "nav-items"}>
+                  <i className="fa-regular fa-user"></i>
+                  <span>Perfil</span>
+                </li>
+              )}
+            </NavLink>
+            
+            <NavLink to="/ligas">
+                {({ isActive }) => (
+                <li className={isActive ? "nav-items active" : "nav-items"}>
+                  <i className="fa-regular fa-flag"></i>
+                  <span>Ligas</span>
+                </li>
+              )}
+            </NavLink>
 
           </ul>
         </nav>

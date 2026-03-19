@@ -13,8 +13,8 @@ function Ligas() {
   return (
     <div className="ligas-container">
 
-      <h1 className="liga-title">Liga Prata</h1>
-      <p className="liga-subtitle">Ranking semanal</p>
+      <h1 className="liga-title">Liga </h1>
+      <h3 className="liga-subtitle">Ranking semanal</h3>
 
       <div className="liga-board">
 
